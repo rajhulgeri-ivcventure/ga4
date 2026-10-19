@@ -59,16 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     status.textContent = message;
   }
 
-  if (analyticsReady) {
-    const pageLocation = window.location.href;
-    const pageTitle = document.title || 'NovaFlow';
-    window.gtag('event', 'page_view', {
-      page_location: pageLocation,
-      page_title: pageTitle,
-      page_referrer: document.referrer || '(direct)'
-    });
-  }
-
   document.querySelectorAll('[data-ga-event]').forEach((button) => {
     button.addEventListener('click', () => {
       const eventName = button.dataset.gaEvent || 'click_cta';
