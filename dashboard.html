@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | NovaFlow</title>
+    <meta name="description" content="Your NovaFlow dashboard." />
+    <meta name="theme-color" content="#071321" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EP7L5BW48Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EP7L5BW48Z');
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="./index.html" aria-label="NovaFlow home">
+          <span class="brand-mark"></span>
+          <span>NovaFlow</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">Home</a>
+          <a href="./pricing.html">Pricing</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button type="button" class="ghost-button" data-action="logout">Log out</button>
+        </div>
+        <button class="icon-button nav-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container split">
+        <div>
+          <div class="eyebrow">Workspace</div>
+          <h1>Welcome back, <span id="dashboard-name">there</span>.</h1>
+          <p class="lead">Your team workspace is ready. Manage launches, approvals, and performance in one place.</p>
+          <div class="hero-actions">
+            <a href="./index.html" class="primary-button">Back to home</a>
+            <button type="button" class="secondary-button" data-action="logout">Log out</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="window-bar"><span></span><span></span><span></span></div>
+          <div class="chart-panel">
+            <div style="display:flex;justify-content:space-between;color:var(--muted);font-size:0.85rem;">
+              <span>Current performance</span>
+              <span style="color: var(--green);">+24.8%</span>
+            </div>
+            <div class="chart-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© 2026 NovaFlow</div>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./pricing.html">Pricing</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
