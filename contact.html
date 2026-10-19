@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | NovaFlow</title>
+    <meta name="description" content="Contact NovaFlow to discuss your workflow, automation, and growth goals." />
+    <meta name="theme-color" content="#071321" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EP7L5BW48Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EP7L5BW48Z');
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="./index.html" aria-label="NovaFlow home">
+          <span class="brand-mark"></span>
+          <span>NovaFlow</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#features">Features</a>
+          <a href="./index.html#demo">Product Demo</a>
+          <a href="./pricing.html">Pricing</a>
+          <a href="./contact.html">Contact</a>
+          <a href="./signin.html">Sign In</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="./signin.html" class="ghost-button">Sign In</a>
+          <a href="./index.html#contact" class="primary-button" data-ga-event="click_cta" data-ga-location="header" data-ga-name="get_started">Get Started</a>
+        </div>
+        <button class="icon-button nav-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container contact-grid">
+        <div class="info-card">
+          <div class="eyebrow">Get in touch</div>
+          <h2>We’d love to learn about your goals.</h2>
+          <p>Whether you are refining your launch process or scaling a new workflow, we can help.</p>
+          <ul class="list">
+            <li><strong>Email:</strong> hello@novaflow.example</li>
+            <li><strong>Hours:</strong> Monday–Friday</li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form id="contact-form" class="form-grid">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@company.com" />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="primary-button" data-ga-event="click_cta" data-ga-location="contact" data-ga-name="contact_submit">Send message</button>
+            <div class="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© 2026 NovaFlow</div>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./pricing.html">Pricing</a>
+          <a href="./signin.html">Sign In</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing | NovaFlow</title>
+    <meta name="description" content="Simple pricing for growing teams using NovaFlow." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#071321" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EP7L5BW48Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EP7L5BW48Z');
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="./index.html" aria-label="Home">
+          <span class="brand-mark"></span>
+          <span>NovaFlow</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#features">Features</a>
+          <a href="./index.html#demo">Product Demo</a>
+          <a href="./pricing.html">Pricing</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="./signin.html" class="ghost-button">Sign In</a>
+          <a href="./index.html#contact" class="primary-button" data-ga-event="click_cta" data-ga-location="header" data-ga-name="get_started">Get Started</a>
+        </div>
+        <button class="icon-button nav-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="heading" style="text-align:center;">
+            <div class="eyebrow">Pricing</div>
+            <h2>Simple pricing for modern teams</h2>
+            <p>Switch plans as your pipeline grows. No hidden fees.</p>
+          </div>
+
+          <div class="billing-toggle" aria-label="Billing period selector">
+            <button type="button" class="active" data-billing="monthly">Monthly</button>
+            <button type="button" data-billing="annual">Annual</button>
+          </div>
+
+          <div class="pricing-grid" style="margin-top:32px;">
+            <article class="price-card">
+              <div class="price-top"><h3>Free</h3></div>
+              <div class="price"><span data-price-monthly="0" data-price-annual="0">$0</span><small data-billing-label="/mo">/mo</small></div>
+              <p>For early-stage teams trying a cleaner workflow.</p>
+              <ul class="feature-list">
+                <li>1 workspace</li>
+                <li>Basic automations</li>
+                <li>Email support</li>
+                <li>Community access</li>
+              </ul>
+              <a href="./signin.html" class="secondary-button" data-ga-event="select_item" data-ga-location="pricing" data-ga-name="free_plan">Try Free</a>
+            </article>
+
+            <article class="price-card featured">
+              <div class="price-top"><h3>Pro</h3><span class="eyebrow">Most popular</span></div>
+              <div class="price"><span data-price-monthly="29" data-price-annual="24">$29</span><small data-billing-label="/mo">/mo</small></div>
+              <p>For growing teams that want speed and visibility.</p>
+              <ul class="feature-list">
+                <li>Unlimited projects</li>
+                <li>Advanced analytics</li>
+                <li>Priority support</li>
+                <li>Custom dashboards</li>
+              </ul>
+              <button type="button" class="primary-button" data-plan="pro" data-ga-event="select_item" data-ga-location="pricing" data-ga-name="pro_plan">Choose Pro</button>
+            </article>
+
+            <article class="price-card">
+              <div class="price-top"><h3>Business</h3></div>
+              <div class="price"><span data-price-monthly="79" data-price-annual="64">$79</span><small data-billing-label="/mo">/mo</small></div>
+              <p>For teams coordinating campaigns, approvals, and content.</p>
+              <ul class="feature-list">
+                <li>Unlimited seats</li>
+                <li>SSO and governance</li>
+                <li>Dedicated onboarding</li>
+                <li>Advanced reporting</li>
+              </ul>
+              <button type="button" class="secondary-button" data-plan="business" data-ga-event="select_item" data-ga-location="pricing" data-ga-name="business_plan">Talk to Sales</button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© 2026 NovaFlow</div>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./contact.html">Contact</a>
+          <a href="./pricing.html">Pricing</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
