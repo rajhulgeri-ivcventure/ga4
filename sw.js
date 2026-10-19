@@ -1,4 +1,4 @@
-const CACHE_NAME = 'novaflow-static-v1';
+const CACHE_NAME = 'supersave-static-v1';
 const OFFLINE_URL = './index.html';
 const APP_SHELL = [
   './',
