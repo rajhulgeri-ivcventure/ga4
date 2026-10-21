@@ -7,8 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function trackEvent(name, params = {}) {
-    if (!analyticsReady) return;
-    window.gtag('event', name, params);
+    if (analyticsReady) {
+      window.gtag('event', name, params);
+    }
+    if (window.posthog && typeof window.posthog.capture === 'function') {
+      window.posthog.capture(name, params);
+    }
   }
 
   function safeParse(value, fallback) {
