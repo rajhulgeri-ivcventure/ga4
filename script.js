@@ -273,6 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
     identifyPosthogUser(currentUser);
   }
 
+  if (window.posthog) {
+    window.posthog.capture('$pageview', {
+      $current_url: window.location.origin + window.location.pathname
+    });
+  }
+
   const authState = document.querySelector('[data-auth-state]');
   if (authState && currentUser) {
     authState.textContent = `Signed in as ${currentUser.name}`;

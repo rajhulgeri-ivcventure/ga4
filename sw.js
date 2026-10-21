@@ -1,4 +1,4 @@
-const CACHE_NAME = 'supersave-static-v1';
+const CACHE_NAME = 'supersave-static-v2';
 const OFFLINE_URL = './index.html';
 const APP_SHELL = [
   './',
@@ -8,8 +8,10 @@ const APP_SHELL = [
   './contact.html',
   './pricing.html',
   './signin.html',
+  './dashboard.html',
   './style.css',
   './script.js',
+  './posthog.js',
   './manifest.webmanifest'
 ];
 
@@ -30,6 +32,17 @@ self.addEventListener('fetch', (event) => {
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
+      const isSameOrigin = new URL(event.request.url).origin === self.location.origin;
+      if (isSameOrigin) {
+        return fetch(event.request).then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return response;
+        }).catch(() => cached || caches.match(OFFLINE_URL));
+      }
+
       if (cached) return cached;
       return fetch(event.request).then((response) => {
         const copy = response.clone();
