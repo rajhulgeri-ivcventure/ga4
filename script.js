@@ -10,8 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (analyticsReady) {
       window.gtag('event', name, params);
     }
-    if (window.posthog && typeof window.posthog.capture === 'function') {
+    if (window.posthog) {
       window.posthog.capture(name, params);
+    }
+  }
+
+  function identifyPosthogUser(user) {
+    if (window.posthog) {
+      const username = user.username || user.name;
+      if (user.id && user.email && username) {
+        window.posthog.identify(user.id, {
+          email: user.email,
+          username
+        });
+      }
+    }
+  }
+
+  function trackAuthEvent(name, params) {
+    if (analyticsReady) {
+      window.gtag('event', name, params);
+    }
+    if (window.posthog) {
+      window.posthog.capture(name, { method: 'email' });
     }
   }
 
@@ -196,9 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
       users.push(user);
       saveUsers(users);
       setCurrentUser(user);
+      identifyPosthogUser(user);
       setFormStatus(signupForm, 'Account created successfully! Redirecting to your dashboard...', 'success');
 
-      trackEvent('sign_up', {
+      trackAuthEvent('sign_up', {
         form_type: 'signup',
         page_location: window.location.href,
         content_name: 'signup_form'
@@ -231,9 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       setCurrentUser(user);
+      identifyPosthogUser(user);
       setFormStatus(loginForm, 'Welcome back! Redirecting to your dashboard...', 'success');
 
-      trackEvent('login', {
+      trackAuthEvent('login', {
         form_type: 'login',
         page_location: window.location.href,
         content_name: 'login_form'
@@ -246,6 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const currentUser = getCurrentUser();
+  if (currentUser) {
+    identifyPosthogUser(currentUser);
+  }
+
   const authState = document.querySelector('[data-auth-state]');
   if (authState && currentUser) {
     authState.textContent = `Signed in as ${currentUser.name}`;
@@ -264,6 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.querySelector('[data-action="logout"]');
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
+      if (window.posthog) {
+        window.posthog.reset();
+      }
       clearCurrentUser();
       window.location.href = './signin.html';
     });
